@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+            background-color: rgb(153, 51, 153);
+            color: rgb(255, 255, 255);
+            }
+            h1{
+                color: white;
+                font-family: verdana;
+                font-size: 200%;
+            }
+            table {
+              width:70%;
+            }
+            table, th, td {
+               border: 1px solid black;
+               border-collapse: collapse;
+            }
+            th, td {
+                padding: 15px;
+                text-align: left;
+            }
+            table#t01 tr:nth-child(even) {
+                background-color: #eee;
+            }
+            table#t01 tr:nth-child(odd) {
+               background-color: #fff;
+            }
+            table#t01 th {
+              background-color: black;
+              color: white;
+            }        
+         </style>    
+    </head>        
+<body>
+<h1> Eventos Por Deputado </h1>
+
+<table> 
+    <tr>
+        <th>Foto</th>
+        <th>Nome</th>
+        <th>Partido</th>
+        <th>Estado</th>
+        <th>Eventos</th>
+    </tr>
+{% for lista in listas %}
+      <tr>
+        <td><img src={{ lista['urlFoto']}}
+        width="55px" height="55px"/></td>
+        <td>{{ lista['nome']}}</td>
+        <td>{{ lista['siglaPartido']}}</td>
+        <td>{{ lista['siglaUf']}}
+        <td><a href=/eventos/{{lista['id']}}>Eventos</a></td>
+     </tr>
+{% endfor %}
+
+</table>
+</body>
+</html>

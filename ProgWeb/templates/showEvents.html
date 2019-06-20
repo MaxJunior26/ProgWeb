@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+           body {
+             background-color: rgb(128, 0, 128);
+            color: rgb(255, 255, 255);
+            }
+            h1{
+                color: rgb(255, 255, 255);
+                font-family: verdana;
+                font-size: 200%;
+            }
+            table {
+              width:80%;
+            }
+            table, th, td {
+               border:0.7px solid black;
+               border-collapse: collapse;
+               text-align: center;
+            }
+            th, td {
+                padding: 15px;
+                text-align: left;
+            }
+            table#t01 tr:nth-child(even) {
+                background-color: #eee;
+            }
+            table#t01 tr:nth-child(odd) {
+               background-color: #fff;
+            }
+            table#t01 th {
+              background-color: black;
+              color: white;
+            }        
+         </style>    
+    </head>        
+<body>
+<h1> Eventos </h1>
+
+<table> 
+    <tr>
+        <th>Tipo de Evento</th>
+        <th>Local</th>
+        <th>Situação</th>
+    </tr>
+{% for lista in event %}
+
+      <tr>
+        <td>{{ lista['descricaoTipo']}}</td>
+        <td>{{ lista['localCamara']['nome']}}</td>
+        <td>{{ lista['situacao']}}</td>
+     </tr>
+{% endfor %}
+
+</table>
+</body>
+</html>
